@@ -1,13 +1,13 @@
 {
   "name": "ulog",
-  "version": "0.1.1-2",
+  "version": "0.1.1-3",
   "description": "A web practice project.",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c && cp ./out/* ./htdocs/js",
+    "build": "rollup -c && npm version prerelease --force",
     "preversion": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "rollup -c"
+    "version": "rollup -c && cp ./out/* ./htdocs/js"
   },
   "repository": {
     "type": "git",
