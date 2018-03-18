@@ -1,6 +1,6 @@
 {
   "name": "ulog",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0-alpha.0",
   "description": "A web practice project.",
   "main": "index.js",
   "scripts": {
