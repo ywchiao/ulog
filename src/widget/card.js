@@ -3,7 +3,7 @@
  *  @brief      The Card component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/24/2018 created.
- *  @date       03/24/2018 last modified.
+ *  @date       03/25/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -13,125 +13,59 @@
  */
 'use strict';
 
+import HTML from '../html/html.js';
+import Node from './node.js';
 
-let cardContent = () => {
-  let el = html.node({
-    tag: HTML.DIV,
-    className: CARD.CONTENT
-  });
-
-  el.style.overflowX = 'scroll';
-
-  return el;
-};
-
-let cardFooter = () => {
-  let el = html.node({
-    tag: HTML.FOOTER,
-    className: CARD.FOOTER
-  });
-
-  return el;
-};
-
-let cardHeader = () => {
-  let caption = html.node({
-    tag: HTML.SPAN,
-    className: 'title is-5'
-  });
-
-  let textContainer = html.node({
-    tag: HTML.P,
-    className: CARD.HEADER_TITLE
-  });
-
-  textContainer.appendChild(caption);
-
-  let el = html.node({
-    tag: HTML.HEADER,
-    className: CARD.HEADER
-  });
-
-  el.appendChild(textContainer);
-
-  return el;
-};
-
-let prototype = {
-  addControl: function (ctrl) {
-    let header = html.query({
-      node: this.node,
-      selector: HTML.HEADER,
-    });
-
-    header.insertBefore(ctrl.node, header.lastChild);
-
-    return this;
-  },
-
-  setFooterBackgroundColor: function (color) {
-    let el = this.node.querySelector(CARD_CLASS.FOOTER);
-
-    el.style.backgroundColor = color;
-
-    return this;
-  },
-
-  setHeaderBackgroundColor: function (color) {
-    let el = this.node.querySelector(CARD_CLASS.HEADER);
-
-    el.style.backgroundColor = color;
-
-    return this;
-  },
-
-  setCaptionColor: function (color) {
-    let el = this.node.querySelector('.title');
-
-    el.style.color = color;
-
-    return this;
-  },
-
-  setCaption: function (caption) {
-    let el = this.node.querySelector('.title');
-
-    el.textContent = caption;
-
-    return this;
-  },
-
-  setContent: function (content) {
-    let el = this.node.querySelector(CARD_CLASS.CONTENT);
-
-    el.appendChild(content);
-
-    return this;
-  },
-
-  setContentBackgroundColor: function (color) {
-    let el = this.node.querySelector(CARD_CLASS.CONTENT);
-
-    el.style.backgroundColor = color;
-
-    return this;
-  },
-};
-
-let Card = (tag) => {
-  let el = html.node({
+let Card = function (tag) {
+  Node.call(this, {
     tag: HTML.SECTION,
-    className: CARD.CARD
+    className: 'card'
   });
-
-
-  el.appendChild(cardHeader());
-  el.appendChild(cardContent());
-  el.appendChild(cardFooter());
-
-  el.id = `${CONFIG.PREFIX}-card-${tag}`;
-
-  this.node = el;
 };
+
+Card.prototype = Object.create(Node.prototype);
+
+Card.prototype.constructor = Card;
+
+Card.prototype.setHeader = function (header) {
+  if (this.header) {
+    this.node.replaceChild(header.node, this.header.node);
+  }
+  else {
+    this.node.insertBefore(header.node, this.node.firstChild);
+  }
+
+  this.header = header;
+
+  return this;
+};
+
+Card.prototype.setContent = function (content) {
+  if (this.content) {
+    this.node.replaceChild(content.node, this.content.node);
+  }
+  else {
+    this.node.insertBefore(content.node, this.node.lastChild);
+  }
+
+  this.content = content;
+
+  return this;
+};
+
+Card.prototype.setFooter = function (footer) {
+  if (this.footer) {
+    this.node.replaceChild(footer.node, this.footer.node);
+  }
+  else {
+    this.node.appendChild(footer.node);
+  }
+
+  this.footer = footer;
+
+  return this;
+};
+
+export default Card;
 
 // widget/card.js
