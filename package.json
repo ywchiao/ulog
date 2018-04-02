@@ -4,8 +4,8 @@
   "description": "A web practice project.",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "npm-run-all -s build push",
+    "build": "npm-run-all -s compile push",
+    "compile": "rollup -c",
     "lint": "eslint --fix js > log/eslint.log",
     "push": "cp ./out/* ./htdocs/js",
     "test": "echo \"Error: no test specified\" && exit 1"

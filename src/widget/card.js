@@ -3,7 +3,7 @@
  *  @brief      The Card component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/24/2018 created.
- *  @date       03/25/2018 last modified.
+ *  @date       04/02/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -14,16 +14,18 @@
 'use strict';
 
 import HTML from '../html/html.js';
-import Node from './node.js';
+
+import node from './node.js';
+import widget from './widget.js';
 
 let Card = function (tag) {
-  Node.call(this, {
+  this.node = node ({
     tag: HTML.SECTION,
     className: 'card'
   });
 };
 
-Card.prototype = Object.create(Node.prototype);
+Card.prototype = Object.create(widget);
 
 Card.prototype.constructor = Card;
 

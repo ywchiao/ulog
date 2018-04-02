@@ -13,8 +13,15 @@
  */
 'use strict';
 
-
 let widget = {
+  appendChild: function (node) {
+    let el = this.node;
+
+    el.appendChild(node);
+
+    return this;
+  },
+
   setBackgroundColor: function (color) {
     let el = this.node;
 
@@ -31,5 +38,7 @@ let widget = {
     return this;
   },
 };
+
+export default widget;
 
 // widget/widget.js

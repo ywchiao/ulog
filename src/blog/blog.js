@@ -15,6 +15,7 @@
 
 import Container from '../container/container.js';
 import Card from '../widget/card.js';
+import Icon from '../widget/icon.js';
 import TextArea from '../widget/textarea.js';
 
 const banner = function () {
@@ -59,6 +60,8 @@ const content = () => {
 
 export default function () {
   let blog = new Container('div');
+  let icon = new Icon('test');
+  console.log(icon);
 
   return blog.setHeader(banner())
       .setFooter(footer())
