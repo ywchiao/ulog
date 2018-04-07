@@ -3,7 +3,7 @@
  *  @brief      The HTML module of the HTML subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/25/2018 created.
- *  @date       03/26/2018 last modified.
+ *  @date       04/07/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -20,15 +20,15 @@ const TAG = {
   BODY: 'body',
   BUTTON: 'button',
   DATA_LIST: 'datalist',
-  DIVISION: 'div',
+  DIV: 'div',
   FIGURE: 'figure',
   FOOTER: 'footer',
+  FORM: 'form',
   HEADER: 'header',
   I: 'i',
   IMG: 'img',
   INPUT_FIELD: 'input',
   LABEL: 'label',
-  LIST_ITEM: 'li',
   NAVIGATION: 'nav',
   ORDERED_LIST: 'ol',
   OPTION: 'option',

@@ -3,7 +3,7 @@
  *  @brief      The Widget component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/24/2018 created.
- *  @date       03/24/2018 last modified.
+ *  @date       04/07/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -18,6 +18,22 @@ let widget = {
     let el = this.node;
 
     el.appendChild(node);
+
+    return this;
+  },
+
+  addClass: function (cls) {
+    if (!this.node.className.includes(cls)) {
+      this.node.className += this.node.className ? ` ${cls}` : cls;
+    } // fi
+
+    return this;
+  },
+
+  removeClass: function (cls) {
+    this.node.className = this.node.className.replace(
+      RegExp(`[ ]*${cls}`, 'g'), ''
+    );
 
     return this;
   },

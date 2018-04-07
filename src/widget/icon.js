@@ -3,7 +3,7 @@
  *  @brief      The Icon component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/02/2018 created.
- *  @date       04/02/2018 last modified.
+ *  @date       04/07/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -21,13 +21,14 @@ import widget from './widget.js';
 let Icon = function (tag, handler) {
   let el = node({
     tag: HTML.SPAN,
-    handler: handler
+    handler: handler,
+    className: 'icon'
   });
   
   el.appendChild(
     node({
       tag: HTML.I,
-      className: `fas fa-${tag} fa-3x`
+      className: `fas fa-${tag}`
     })
   );
 
