@@ -87,16 +87,6 @@ let toolbar = () => {
       cmd: 'insertUnorderedList',
     },
     { 
-      tag: 'quote-left',
-      cmd: '',
-      value: ''
-    },
-    { 
-      tag: 'quote-right',
-      cmd: '',
-      value: ''
-    },
-    { 
       tag: 'indent',
       cmd: 'indent',
     },
@@ -124,6 +114,8 @@ let toolbar = () => {
     el.appendChild(icon.node);
   });
 
+  el.className = 'toolbar';
+
   return el;
 };
 
@@ -135,6 +127,8 @@ let Post = function (tag) {
   this.node.appendChild(toolbar());
 
   let article = new Article();
+  article.addClass('edit-area');
+
   this.node.appendChild(article.node);
 };
 
