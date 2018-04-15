@@ -1,0 +1,4 @@
+{
+  "/": "ULog\\View\\ULog",
+  "/post": "ULog\\Controller\\Post"
+}

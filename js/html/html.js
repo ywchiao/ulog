@@ -3,7 +3,7 @@
  *  @brief      The HTML module of the HTML subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/25/2018 created.
- *  @date       04/07/2018 last modified.
+ *  @date       04/12/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -14,12 +14,12 @@
 'use strict';
 
 const TAG = {
-  ANCHOR: 'a',
+  A: 'a',
   ARTICLE: 'article',
   ASIDE: 'aside',
   BODY: 'body',
   BUTTON: 'button',
-  DATA_LIST: 'datalist',
+  DATALIST: 'datalist',
   DIV: 'div',
   FIGURE: 'figure',
   FOOTER: 'footer',
@@ -27,24 +27,24 @@ const TAG = {
   HEADER: 'header',
   I: 'i',
   IMG: 'img',
-  INPUT_FIELD: 'input',
+  INPUT: 'input',
   LABEL: 'label',
-  NAVIGATION: 'nav',
-  ORDERED_LIST: 'ol',
+  NAV: 'nav',
+  OL: 'ol',
   OPTION: 'option',
-  PARAGRAPH: 'p',
-  PRE_FORMATED: 'pre',
+  P: 'p',
+  PRE: 'pre',
   SECTION: 'section',
   SELECT: 'select',
   SPAN: 'span',
   TABLE: 'table',
-  TABLE_BODY: 'tbody',
-  TABLE_CELL: 'td',
+  TBODY: 'tbody',
+  TD: 'td',
   TEXTAREA: 'textarea',
   TH: 'th',
-  TABLE_HEAD: 'thead',
-  TABLE_ROW: 'tr',
-  UNORDERED_LIST: 'ul',
+  THEAD: 'thead',
+  TR: 'tr',
+  UL: 'ul',
 };
 
 export default TAG;

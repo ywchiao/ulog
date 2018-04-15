@@ -3,7 +3,7 @@
  *  @brief      The Post component of the system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/07/2018 created.
- *  @date       04/07/2018 last modified.
+ *  @date       04/16/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -26,10 +26,6 @@ let toolbar = () => {
   });
 
   [
-    { 
-      tag: 'file',
-      cmd: '',
-    },
     {
       tag: 'edit',
       cmd: '',
@@ -120,14 +116,24 @@ let toolbar = () => {
 };
 
 let Post = function (tag) {
+  let article = new Article();
+  article.addClass('edit-area');
+
   this.node = node({
     tag: HTML.FORM,
+    attribute: {
+      'method': 'post',
+    },
   });
 
   this.node.appendChild(toolbar());
-
-  let article = new Article();
-  article.addClass('edit-area');
+  this.node.appendChild(node({
+    tag: HTML.INPUT,
+    attribute: {
+      'type': 'hidden',
+      'name': 'article'
+    }
+  }));
 
   this.node.appendChild(article.node);
 };
