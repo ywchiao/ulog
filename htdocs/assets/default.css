@@ -3,7 +3,7 @@
  *  @brief      The Default css file for the ulog.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/26/2018 createdf
- *  @date       04/07/2018 last modified.
+ *  @date       04/20/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -47,6 +47,12 @@ textarea {
 
 .edit-tool {
   padding: 2px;
+}
+
+.post-title {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 .toolbar {

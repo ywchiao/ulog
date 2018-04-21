@@ -4,7 +4,7 @@
  *  @brief      The Router module of the Router subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/15/2018 created.
- *  @date       04/15/2018 last modified.
+ *  @date       04/17/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -28,8 +28,6 @@ class Router
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = rawurldecode($_SERVER['REQUEST_URI']);
-
-        echo $uri;
 
         return $this->routingTable[$uri];
     }
