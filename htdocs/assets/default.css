@@ -49,6 +49,20 @@ textarea {
   padding: 2px;
 }
 
+.nav-control {
+  margin: 0 2rem;
+  text-align: right;
+}
+
+.nav-control li {
+  display: inline;
+}
+
+.nav-control li:hover {
+  color: #d0d0d0;
+}
+
+
 .post-title {
   border-bottom: 1px solid #aaa;
   margin-bottom: 5px;

@@ -4,7 +4,7 @@
  *  @brief      The Entry module of the ULog.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/15/2018 created.
- *  @date       04/15/2018 last modified.
+ *  @date       04/22/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -13,12 +13,12 @@
  *  The Entry module of the ULog.
  */
 
-use ULog\Router\Router;
+use ULog\App\App;
 
 // 載入 autoloader
 include __DIR__ . '/vendor/autoload.php';
 
-$router = new Router(__DIR__ . '/config/config.json');
+$app = new App(__DIR__ . '/config/config.json');
 
 if (php_sapi_name() === 'cli-server') {
     if (preg_match(
@@ -28,9 +28,7 @@ if (php_sapi_name() === 'cli-server') {
         return false; // 傳回 *靜態* (static) 檔案
     }
     else {
-        $controller = $router->route();
-
-        (new $controller())->run();
+        $app->route();
     }
 }
 

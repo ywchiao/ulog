@@ -4,7 +4,7 @@
  *  @brief      The Router module of the Router subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/15/2018 created.
- *  @date       04/17/2018 last modified.
+ *  @date       04/22/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -21,14 +21,11 @@ class Router
 
     public function __construct($config)
     {
-        $this->routingTable = json_decode(file_get_contents($config), true);
+        $this->routingTable = $config;
     }
 
-    public function route()
+    public function route($method, $uri)
     {
-        $method = $_SERVER['REQUEST_METHOD'];
-        $uri = rawurldecode($_SERVER['REQUEST_URI']);
-
         return $this->routingTable[$uri];
     }
 }

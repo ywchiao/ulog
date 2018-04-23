@@ -1,4 +1,7 @@
 {
-  "/": "ULog\\View\\ULog",
-  "/post": "ULog\\Controller\\Post"
+  "route": {
+    "/": "ULog\\View\\ULog",
+    "/post": "ULog\\Controller\\Post"
+  }
 }
+
