@@ -3,7 +3,7 @@
  *  @brief      The Post component of the system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/07/2018 created.
- *  @date       04/20/2018 last modified.
+ *  @date       04/23/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -140,6 +140,7 @@ const titleBar = () => {
 let Post = function (tag) {
   let article = new Article();
   article.addClass('edit-area')
+    .setProperty('writing-mode', 'vertical-rl')
     .setAttribute('contentEditable', true);
 
   this.node = node({

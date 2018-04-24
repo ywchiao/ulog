@@ -20,24 +20,17 @@ import HTML from '../html/html.js';
 import Post from '../post/post.js';
 
 import Card from '../widget/card.js';
-import Link from '../widget/link.js';
 import node from '../widget/node.js';
+import navBlogger from '../nav/blogger.js';
 
-const controls = () => {
-  let newPost = new Link('新  帖');
-
-  let ul = node({
-    tag: HTML.UL,
-    className: 'nav-control'
-  });
-
-  ul.appendChild(newPost.node);
+const navbar = () => {
+  let bar = navBlogger();
 
   let el = node({
     tag: HTML.SECTION,
   });
 
-  el.appendChild(ul);
+  el.appendChild(bar.node);
 
   return el;
 }
@@ -52,7 +45,7 @@ const banner = () => {
   el.style.background = '#00a0ffff';
   el.style.height = '5rem';
 
-  el.appendChild(controls());
+  el.appendChild(navbar());
 
   return el;
 };

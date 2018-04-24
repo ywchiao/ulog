@@ -1,6 +1,6 @@
 /**
- *  @file       link.js
- *  @brief      The Link component of the Widget system.
+ *  @file       navitem.js
+ *  @brief      The NavItem component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/23/2018 created.
  *  @date       04/23/2018 last modified.
@@ -9,7 +9,7 @@
  *  @copyright  MIT, © 2018 Yiwei Chiao
  *  @details 
  *
- *  The Link component of the Widget system.
+ *  The NavItem component of the Widget system.
  */
 'use strict';
 
@@ -18,14 +18,19 @@ import HTML from '../html/html.js';
 import node from './node.js';
 import widget from './widget.js';
 
-let Link = function (tag) {
+let NavItem = function ({tag, callback}) {
   let el = node({
     tag: HTML.LI,
+    className: 'nav-item',
+    handler: {
+      'click': callback
+    }
   });
 
   el.appendChild(
     node({
       tag: HTML.A,
+      className: 'nav-link',
       attribute: {
         'textContent': tag,
       }
@@ -35,10 +40,16 @@ let Link = function (tag) {
   this.node = el;
 };
 
-Link.prototype = Object.create(widget);
+NavItem.prototype = Object.create(widget);
 
-Link.prototype.constructor = Link;
+NavItem.prototype.constructor = NavItem;
 
-export default Link;
+NavItem.prototype.onClick = function (handler) {
+  this.node.addEventListener
 
-// widget/link.js
+};
+
+
+export default NavItem;
+
+// widget/navitem.js
