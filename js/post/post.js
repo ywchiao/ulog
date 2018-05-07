@@ -3,7 +3,7 @@
  *  @brief      The Post component of the system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/07/2018 created.
- *  @date       04/23/2018 last modified.
+ *  @date       05/07/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -16,14 +16,18 @@
 import HTML from '../html/html.js';
 
 import Article from '../widget/article.js';
+import Button from '../widget/button.js';
 import Icon from '../widget/icon.js';
 import node from '../widget/node.js';
 import widget from '../widget/widget.js';
 import http from '../http/http.js';
 
-let toolBar = () => {
+const TOOLBAR = (() => {
   let el = node({
-    tag: HTML.DIV
+    tag: HTML.DIV,
+    attribute: {
+      'contentEditable': 'false',
+    }
   });
 
   [
@@ -111,43 +115,63 @@ let toolBar = () => {
     el.appendChild(icon.node);
   });
 
-  el.className = 'toolBar';
+  el.className = 'toolbar';
 
   return el;
-};
+})();
 
 const titleBar = () => {
   let el = node({
     tag: HTML.DIV,
-    className: 'post-title',
+    className: 'post-title flex-container',
   });
 
   let title = node({
-    tag: HTML.H3,
-    attribute: {
-      'contentEditable': 'true',
-    }
+    tag: HTML.SPAN,
+    className: 'flex-main'
   });
 
+  let t = node({
+    tag: HTML.H3
+  });
 
-  title.innerHTML = '標題：未定';
+  t.textContent = '標題：未定';
+  title.appendChild(t);
 
   el.appendChild(title);
+
+  el.appendChild(new Button()
+    .addIcon('pencil-alt')
+    .setText(' 編 輯 ')
+    .setAttribute('id', 'btn-edit')
+    .setAttribute('contentEditable', 'false')
+    .addEventListener('click', e => {
+      let newPost = document.querySelector('#new-post');
+
+      if (newPost.contentEditable == 'false') {
+        newPost.contentEditable = 'true';
+      }
+      else {
+        newPost.contentEditable = 'false';
+      }
+    })
+    .node
+  );
 
   return el;
 };
 
 let Post = function (tag) {
   let article = new Article();
+
   article.addClass('edit-area')
-    .setProperty('writing-mode', 'vertical-rl')
-    .setAttribute('contentEditable', true);
+    .setProperty('writing-mode', 'vertical-rl');
 
   this.node = node({
     tag: HTML.FORM,
     attribute: {
-      'method': 'post',
-      'action': 'post.php'
+      'id': 'new-post',
+      'contentEditable': 'false',
     },
     handler: {
       "submit": (e) => {
@@ -171,14 +195,7 @@ let Post = function (tag) {
 
   this.node.appendChild(titleBar());
 
-  this.node.appendChild(toolBar());
-  this.node.appendChild(node({
-    tag: HTML.INPUT,
-    attribute: {
-      'type': 'hidden',
-      'name': 'article'
-    }
-  }));
+  this.node.appendChild(TOOLBAR);
 
   this.node.appendChild(article.node);
 

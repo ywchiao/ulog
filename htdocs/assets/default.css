@@ -3,7 +3,7 @@
  *  @brief      The Default css file for the ulog.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/26/2018 createdf
- *  @date       04/20/2018 last modified.
+ *  @date       05/04/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -23,6 +23,11 @@ textarea {
   margin: 5px 0;
   padding: 3px;
   box-sizing: border-box;
+}
+
+.button {
+  font-size: 1rem;
+  height: 1.2rem;
 }
 
 .card {
@@ -49,6 +54,15 @@ textarea {
   padding: 2px;
 }
 
+.flex-main {
+  flex-grow: 1
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .nav-bar {
   margin: 0 2rem;
   text-align: right;
@@ -73,4 +87,10 @@ textarea {
   text-align: left;
 }
 
-/*; default.css */
+#btn-edit {
+  align-self: center;
+  background-color: #ffffff00;
+  border: hidden;
+}
+
+/* default.css */

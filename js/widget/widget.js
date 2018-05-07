@@ -3,7 +3,7 @@
  *  @brief      The Widget component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/24/2018 created.
- *  @date       04/23/2018 last modified.
+ *  @date       05/07/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -47,16 +47,16 @@ let widget = {
   },
 
   /**
-   * Register event-handler fn for specified event e.
+   * Register event-listener fn for specified event e.
    *
-   * @name addEventHandler
+   * @name addEventListener
    * @function
    * @param e The interested event.
-   * @param fn The handler for event e.
+   * @param fn The listener for the event e.
    * @returns {this}
    */
-  addEventHandler: function (e, fn) {
-    this.node.addEventHandler(e, fn);
+  addEventListener: function (e, fn) {
+    this.node.addEventListener(e, fn);
 
     return this;
   },

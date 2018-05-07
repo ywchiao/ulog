@@ -3,7 +3,7 @@
  *  @brief      The Article component of the Widget system.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/07/2018 created.
- *  @date       04/07/2018 last modified.
+ *  @date       05/05/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -20,10 +20,7 @@ import widget from './widget.js';
 
 let Article = function (tag) {
   this.node = node({
-    tag: HTML.ARTICLE,
-    attribute: {
-      contentEditable: true
-    }
+    tag: HTML.ARTICLE
   });
 };
 
