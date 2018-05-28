@@ -34,8 +34,8 @@ class Post
             mkdir($path, 0755, true);
         }
 
-        $post = fopen($path . '/' . time() . '.json', "w");
-        fwrite($post, json_encode($_POST, JSON_PRETTY_PRINT));
+        $post = fopen($path . '/' . time() . '.json', 'wb');
+        fwrite($post, json_encode($_POST, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         fclose($post);
     }
 }
