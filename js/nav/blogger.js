@@ -29,6 +29,8 @@ export default () => {
 
         fetch('/latest', {
           method: 'GET',
+        }).then(response => {
+          return response.json();
         }).then(json => {
           console.log(JSON.stringify(json, null, 2));
         });

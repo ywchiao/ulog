@@ -21,11 +21,13 @@ class Latest
     {
         $lastPost = $this->getLastPost();
 
-        error_log($lastPost);
-
         header('Content-type: application/json');
 
-        $this->read($lastPost);
+        $post = $this->read($lastPost);
+        
+        echo json_encode($post);
+        
+        flush();
     }
 
     private function getLastPost() {
@@ -42,7 +44,7 @@ class Latest
     {
         $post = file_get_contents($fname);
 
-        echo json_encode($post);
+        return $post;
     }
 }
 

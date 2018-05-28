@@ -28,7 +28,7 @@ class Post
 
     private function save()
     {
-        $path = './htdocs/' . date('Ymd');
+        $path = './htdocs/blog/' . date('Ymd');
 
         if (!file_exists($path)) {
             mkdir($path, 0755, true);
