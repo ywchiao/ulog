@@ -1,7 +1,7 @@
 {
   "route": {
     "/": "ULog\\View\\ULog",
+    "/latest": "ULog\\Controller\\Latest",
     "/post": "ULog\\Controller\\Post"
   }
 }
-

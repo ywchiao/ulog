@@ -23,21 +23,37 @@ export default () => {
 
   [
     {
+      tag: '讀 取',
+      callback: (e) => {
+        alert('讀取 (read)');
+
+        fetch('/latest', {
+          method: 'GET',
+        }).then(json => {
+          console.log(JSON.stringify(json, null, 2));
+        });
+        // save post
+      }
+    },
+    {
       tag: '貼 文',
       callback: (e) => {
+        alert('新增 (new)');
         // new post
       }
     },
     {
       tag: '編  輯',
       callback: (e) => {
-        // new post
+        alert('編輯 (edit)');
+        // edit post
       }
     },
     {
       tag: '儲  存',
       callback: (e) => {
-        // new post
+        alert('儲存 (save)');
+        // save post
       }
     },
   ].forEach(o => {

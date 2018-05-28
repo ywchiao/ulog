@@ -30,6 +30,8 @@ class App
 
     public function route()
     {
+        error_log(print_r($_SERVER, 1));
+
         $controller = $this->router->route(
             $_SERVER['REQUEST_METHOD'],
             $_SERVER['REQUEST_URI']
