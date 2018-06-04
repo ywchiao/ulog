@@ -1,15 +1,15 @@
 /**
  *  @file       icon.js
- *  @brief      The Icon component of the Widget system.
+ *  @brief      The Icon module of the UI subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
- *  @date       04/02/2018 created.
- *  @date       06/03/2018 last modified.
- *  @version    0.1.0
+ *  @date       07/05/2017 created.
+ *  @date       05/21/2018 last modified.
+ *  @version    0.5.0
  *  @since      0.1.0
- *  @copyright  MIT, © 2018 Yiwei Chiao
+ *  @copyright  MIT, © 2017-2018 Yiwei Chiao
  *  @details
  *
- *  The Icon component of the Widget system.
+ *  The Icon module of the UI subsystem.
  */
 'use strict';
 
@@ -18,8 +18,14 @@ import HTML from '../dom/html.js';
 
 const ICON = Object.create(ELEMENT);
 
+ICON.align = function (align) {
+  this.addClass(`is-${align}`);
+
+  return this;
+};
+
 ICON.setChar = function (tag) {
-  this.icon.setClass(`fas fa-${tag}`);
+  this.icon.setClass(`fa fa-${tag}`);
 
   return this;
 };
@@ -27,13 +33,13 @@ ICON.setChar = function (tag) {
 export default (tag) => {
   return Object.create(ICON)
     .node(HTML.SPAN)
-    .addClass('icon')
+    .addClass('icon is-small')
     .appendElement(
       Object.create(ELEMENT)
         .node(HTML.I)
-        .setClass(`fas fa-${tag}`),
+        .setClass(`fa fa-${tag}`),
       'icon'
     );
 };
 
-// widget/icon.js
+// ui/icon.js

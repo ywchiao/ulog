@@ -3,7 +3,7 @@
  *  @brief      The Default css file for the ulog.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       03/26/2018 createdf
- *  @date       05/04/2018 last modified.
+ *  @date       06/04/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -81,6 +81,57 @@ textarea {
   border-bottom: 1px solid #aaa;
   margin-bottom: 5px;
   text-align: left;
+}
+
+.site-body {
+  padding: 0 .5rem;
+}
+
+.site-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: .25rem;
+}
+
+.site-burger {
+  margin-left: auto;
+}
+
+.site-content {
+  flex: 1 0 auto;
+  padding: 1rem;
+}
+
+.site-menu {
+  flex: 0 1 auto;
+  margin: .25rem;
+  padding: .25rem;
+  z-index: 9;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  padding: .1rem .5rem;
+  margin-top: auto;
+  color: SteelBlue;
+  background: MidnightBlue;
+  text-align: right;
+}
+
+.site-header {
+  position: fixed;
+  background: Aqua;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 9.5rem;
+  padding: 0.25rem 1rem;
+  z-index: 99;
+}
+
+.site-header-shadow {
+  height: 9.5rem;
 }
 
 .toolbar {

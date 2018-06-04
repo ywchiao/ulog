@@ -24,9 +24,9 @@ class Latest
         header('Content-type: application/json');
 
         $post = $this->read($lastPost);
-        
+
         echo json_encode($post);
-        
+
         flush();
     }
 
