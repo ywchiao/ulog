@@ -19,8 +19,6 @@ class Catalog
 {
     public function action()
     {
-        $t = 'got Catalog';
-        error_log(print_r($t, 1));
         $catalog = $this->getCatalog();
 
         header('Content-type: application/json');

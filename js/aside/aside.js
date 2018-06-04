@@ -14,12 +14,10 @@
 'use strict';
 
 import HTML from '../dom/html.js';
-import MENU from '../menu/menu.js';
 
 export default (() => {
   return HTML.element(HTML.ASIDE)
-    .setClass('site-menu')
-    .appendElement(MENU);
+    .setClass('site-menu');
 })();
 
 // agate/aside.js

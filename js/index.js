@@ -23,24 +23,38 @@ import HTML from './dom/html.js';
 import HTTP from './http/http.js';
 
 import post from './post/post.js';
+
 import card from './ui/card.js';
+import droplist from './ui/droplist.js';
+import menuitem from './ui/menuitem.js';
+
+let menuConstructor = (json) => {
+  let dropMenu = null;
+  
+  Object.entries(json).forEach(([key, value]) => {
+    dropMenu = droplist(key);
+    value.forEach(post => {
+      if (post != '.' && post != '..') {
+        dropMenu.addItem(menuitem(post));
+      }
+    });
+    
+    ASIDE.appendElement(dropMenu);
+  });
+};
 
 window.addEventListener('load', () => {
   document.body = APP.node;
-
-  let postList = null;
   
   fetch('catalog', {
     method: 'GET',
   }).then(response => {
-    console.log(response);
     return response.json();
   }).then(json => {
-    console.log(JSON.stringify(json, null, 2));
+    menuConstructor(json);
   });
-
-  APP.appendElement(ASIDE, 'sideMenu')
-    .setContent(Object.create(ELEMENT)
+  
+  APP.setContent(Object.create(ELEMENT)
     .node(HTML.ARTICLE)
     .setCSSProperty('display', 'flex')
     .appendElement(ASIDE, 'sidemenu')
