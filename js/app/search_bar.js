@@ -2,10 +2,10 @@
  *  @file       search_bar.js
  *  @brief      The SearchBar module of the App subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
- *  @date       05/22/2018 created.
- *  @date       05/22/2018 last modified.
- *  @version    0.5.0
- *  @since      0.5.0
+ *  @date       06/04/2018 created.
+ *  @date       06/04/2018 last modified.
+ *  @version    0.1.0
+ *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
  *  @details
  *
@@ -15,7 +15,7 @@
 
 import HTML from '../dom/html.js';
 
-import icon from '../widget/icon.js';
+import icon from '../ui/icon.js';
 
 export default (() => {
   return HTML.element(HTML.SECTION).appendElement(

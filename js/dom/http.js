@@ -3,8 +3,8 @@
  *  @brief      The http module of the HTTP subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       07/18/2017 created.
- *  @date       05/18/2018 last modified.
- *  @version    0.5.0
+ *  @date       06/04/2018 last modified.
+ *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2017-2018 Yiwei Chiao
  *  @details
@@ -82,7 +82,7 @@ HTTP.head = function (url, token={}) {
   );
 };
 
-HTTP.patch = function (url, data, token={}) {
+HTTP.patch = function (url, data={}, token={}) {
   return fetch(
     url,
     {
@@ -93,7 +93,7 @@ HTTP.patch = function (url, data, token={}) {
   );
 };
 
-HTTP.post = function (url, data, token={}) {
+HTTP.post = function (url, dat={}, token={}) {
   console.log(`token: ${  token.auth}`);
 
   return fetch(
@@ -106,7 +106,7 @@ HTTP.post = function (url, data, token={}) {
   );
 };
 
-HTTP.put = function (url, data, token={}) {
+HTTP.put = function (url, data={}, token={}) {
   return fetch(
     url,
     {
@@ -117,7 +117,7 @@ HTTP.put = function (url, data, token={}) {
   );
 };
 
-HTTP.query = function (url, data, token={}) {
+HTTP.query = function (url, data={}, token={}) {
   console.log(`query => token: ${  token.auth}`);
 
   return fetch(
@@ -127,7 +127,8 @@ HTTP.query = function (url, data, token={}) {
       headers: get_headers(token),
       body: JSON.stringify(data)
     }
-  ).then(response => {
+  )
+  .then(response => {
     let json = {};
 
     if (response.status === 200) {
@@ -135,7 +136,7 @@ HTTP.query = function (url, data, token={}) {
     }
 
     return json;
-  });
+  })
 };
 
 export default (() => {
