@@ -3,7 +3,7 @@
  *  @brief      The HTML module of the DOM subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       12/02/2017 created.
- *  @date       06/03/2018 last modified.
+ *  @date       06/05/2018 last modified.
  *  @version    0.5.0
  *  @since      0.3.0
  *  @copyright  MIT, © 2017-2018 Yiwei Chiao
@@ -26,13 +26,13 @@ const HTML = Object.create({
   FIGURE: 'figure',
   FOOTER: 'footer',
   FORM: 'form',
-  HEADER: 'header',
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
   H4: 'h4',
-  H5: 'h4',
+  H5: 'h5',
   H6: 'h6',
+  HEADER: 'header',
   I: 'i',
   IMG: 'img',
   INPUT: 'input',
