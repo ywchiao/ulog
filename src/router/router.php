@@ -4,7 +4,7 @@
  *  @brief      The Router module of the Router subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       04/15/2018 created.
- *  @date       04/22/2018 last modified.
+ *  @date       06/11/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -26,7 +26,9 @@ class Router
 
     public function route($method, $uri)
     {
-        return $this->routingTable[$uri];
+        preg_match('/\/(\w)*/', $uri, $match);
+
+        return $this->routingTable[$match[0]];
     }
 }
 

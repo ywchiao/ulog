@@ -29,9 +29,11 @@ const populate = function (menu, json) {
     value.forEach(item => {
 //      dropMenu.addItem(menuItem(item));
       dropMenu.addItem(menuItem(item, (e) => {
-        HTTP.query(`article/${item}`)
+        HTTP.query(`article/${key}/${item}`)
           .then(json => {
-            console.log(JSON.stringify(json));
+            let el = document.querySelector('.edit-area');
+            
+            el.innerHTML = JSON.parse(json)["content"];            
           });
       }));
     });

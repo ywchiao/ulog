@@ -4,7 +4,7 @@
  *  @brief      The Catalog module of the Catalog subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       06/04/2018 created.
- *  @date       06/04/2018 last modified.
+ *  @date       06/11/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -31,14 +31,14 @@ class Catalog
     private function getCatalog() {
         $catalog = [];
 
-        $postDates = scandir('htdocs/blog');
+        $postDates = scandir('htdocs/article');
 
         foreach ($postDates as $date) {
             if ($date[0] === '.') {
                 continue;
             }
 
-            $catalog[$date] = scandir('htdocs/blog/' . $date);
+            $catalog[$date] = scandir('htdocs/article/' . $date);
         }
 
         return $catalog;

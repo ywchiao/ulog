@@ -4,7 +4,7 @@
  *  @brief      The Latest module of the Latest subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       05/28/2018 created.
- *  @date       05/28/2018 last modified.
+ *  @date       06/11/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -31,13 +31,13 @@ class Latest
     }
 
     private function getLastPost() {
-        $postDates = scandir('htdocs/blog');
+        $postDates = scandir('htdocs/article');
 
         $lastDate = end($postDates);
 
-        $posts = scandir('htdocs/blog/' . $lastDate);
+        $posts = scandir('htdocs/article/' . $lastDate);
 
-        return './htdocs/blog/' . $lastDate . '/' . end($posts);
+        return './htdocs/article/' . $lastDate . '/' . end($posts);
     }
 
     private function read($fname)
