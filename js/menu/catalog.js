@@ -3,7 +3,7 @@
  *  @brief      The Catalog module of the Menu subsystem.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       06/04/2018 created.
- *  @date       06/04/2018 last modified.
+ *  @date       06/11/2018 last modified.
  *  @version    0.1.0
  *  @since      0.1.0
  *  @copyright  MIT, © 2018 Yiwei Chiao
@@ -27,7 +27,13 @@ const populate = function (menu, json) {
     dropMenu = droplist(key);
 
     value.forEach(item => {
-      dropMenu.addItem(menuItem(item));
+//      dropMenu.addItem(menuItem(item));
+      dropMenu.addItem(menuItem(item, (e) => {
+        HTTP.query(`article/${item}`)
+          .then(json => {
+            console.log(JSON.stringify(json));
+          });
+      }));
     });
     
     menu.appendElement(dropMenu);
@@ -37,14 +43,16 @@ const populate = function (menu, json) {
 export default () => {
   let catalog = menu();
   
+  // 詢問伺服端 (server) 目前的文章列表
   HTTP.query('catalog')
     .then(json => {
-      populate(catalog, json);
+      populate(catalog, json);  // 使用伺服的回答，建構目錄 (menu)
     });
 
+  // 傳回一個包含了 `目錄` 的 <aside> 元件
   return HTML.element(HTML.ASIDE)
     .setClass('site-menu')
-    .appendElement(catalog);
+    .appendElement(catalog);  // 將 `目錄` (menu) 放到 <aside> 元素內
 };
 
 // menu/catalog.js
