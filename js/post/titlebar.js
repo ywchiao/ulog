@@ -22,30 +22,31 @@ export default (() => {
   return Object.create(ELEMENT)
     .node(HTML.SECTION)
     .setClass('post-title flex-container')
-    .appendElement(Object.create(ELEMENT)
-      .node(HTML.SPAN)
-      .setClass('flex-main')
-      .appendNode(Object.create(ELEMENT)
-        .node(HTML.H3)
-        .setAttribute('textContent', '標題：未定')
-        .node
-      )
+    .appendElement(
+      Object.create(ELEMENT)
+        .node(HTML.SPAN)
+        .setClass('flex-main')
+        .appendNode(
+          Object.create(ELEMENT)
+            .node(HTML.H3)
+            .setAttribute('textContent', '標題：未定').node,
+        ),
     )
-    .appendElement(button(' 編 輯 ')
-      .addIcon('pencil-alt')
-      .setAttribute('id', 'btn-edit')
-      .setAttribute('contentEditable', 'false')
-      .onClick(e => {
-        let newTitle = document.querySelector('#new-post');
+    .appendElement(
+      button(' 編 輯 ')
+        .addIcon('pencil-alt')
+        .setAttribute('id', 'btn-edit')
+        .setAttribute('contentEditable', 'false')
+        .onClick((e) => {
+          let newTitle = document.querySelector('#new-post');
 
-        if (newTitle.contentEditable == 'false') {
-          newTitle.contentEditable = 'true';
-        }
-        else {
-          newTitle.contentEditable = 'false';
-        }
-      })
+          if (newTitle.contentEditable == 'false') {
+            newTitle.contentEditable = 'true';
+          } else {
+            newTitle.contentEditable = 'false';
+          }
+        }),
     );
-})();      
+})();
 
 // post/titlebar.js

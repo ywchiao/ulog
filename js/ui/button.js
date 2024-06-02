@@ -27,8 +27,7 @@ BUTTON.addIcon = function (tag) {
 BUTTON.setLabel = function (text) {
   if (this.hasOwnProperty('label')) {
     this.label.setAttribute('textContent', text);
-  }
-  else {
+  } else {
     this.appendElement(HTML.span(text), 'label');
   }
 

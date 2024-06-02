@@ -29,10 +29,8 @@ export default (tag) => {
     .node(HTML.SPAN)
     .addClass('icon is-small')
     .appendElement(
-      Object.create(ELEMENT)
-        .node(HTML.I)
-        .setClass(`fas fa-${tag}`),
-      'icon'
+      Object.create(ELEMENT).node(HTML.I).setClass(`fas fa-${tag}`),
+      'icon',
     );
 };
 

@@ -22,39 +22,39 @@ import menuItem from '../ui/menuitem.js';
 
 const populate = function (menu, json) {
   let dropMenu = null;
-  
+
   Object.entries(json).forEach(([key, value]) => {
     dropMenu = droplist(key);
 
-    value.forEach(item => {
-//      dropMenu.addItem(menuItem(item));
-      dropMenu.addItem(menuItem(item, (e) => {
-        HTTP.query(`article/${key}/${item}`)
-          .then(json => {
+    value.forEach((item) => {
+      //      dropMenu.addItem(menuItem(item));
+      dropMenu.addItem(
+        menuItem(item, (e) => {
+          HTTP.query(`article/${key}/${item}`).then((json) => {
             let el = document.querySelector('.edit-area');
-            
-            el.innerHTML = JSON.parse(json)["content"];            
+
+            el.innerHTML = JSON.parse(json)['content'];
           });
-      }));
+        }),
+      );
     });
-    
+
     menu.appendElement(dropMenu);
   });
 };
 
 export default () => {
   let catalog = menu();
-  
+
   // 詢問伺服端 (server) 目前的文章列表
-  HTTP.query('catalog')
-    .then(json => {
-      populate(catalog, json);  // 使用伺服的回答，建構目錄 (menu)
-    });
+  HTTP.query('catalog').then((json) => {
+    populate(catalog, json); // 使用伺服的回答，建構目錄 (menu)
+  });
 
   // 傳回一個包含了 `目錄` 的 <aside> 元件
   return HTML.element(HTML.ASIDE)
     .setClass('site-menu')
-    .appendElement(catalog);  // 將 `目錄` (menu) 放到 <aside> 元素內
+    .appendElement(catalog); // 將 `目錄` (menu) 放到 <aside> 元素內
 };
 
 // menu/catalog.js

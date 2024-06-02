@@ -22,9 +22,7 @@ MENU.addItem = function (tag) {
   this.appendElement(HTML.label(tag));
 
   this.appendElement(
-    Object.create(ELEMENT)
-      .node(HTML.UL)
-      .setClass('menu-list')
+    Object.create(ELEMENT).node(HTML.UL).setClass('menu-list'),
   );
 
   return this;
@@ -41,9 +39,7 @@ MENU.appendDropdown = function (dropdown) {
 };
 
 export default () => {
-  return Object.create(MENU)
-    .node(HTML.UL)
-    .setClass('menu-list');
+  return Object.create(MENU).node(HTML.UL).setClass('menu-list');
 };
 
 // ui/menu.js

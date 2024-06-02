@@ -18,9 +18,7 @@ import HTML from '../dom/html.js';
 import anchor from './anchor.js';
 
 export default (tag, fn) => {
-  return HTML.element(HTML.LI)
-    .appendElement(anchor(tag))
-    .onClick(fn);
+  return HTML.element(HTML.LI).appendElement(anchor(tag)).onClick(fn);
 };
 
 // ui/menuitem.js

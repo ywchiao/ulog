@@ -1,5 +1,3 @@
-import babel from '@rollup/plugin-babel';
-
 export default {
   input: 'js/index.js',
   output: {
@@ -8,27 +6,6 @@ export default {
     sourcemap: 'true',
   },
   plugins: [
-    babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      babelHelpers: 'external',
-      presets: [
-        [
-          "@babel/preset-env",
-          {
-            targets: {
-              browsers: [
-                "last 2 versions"
-              ]
-            },
-            modules: false
-          }
-        ]
-      ],
-      plugins: [
-        "@babel/plugin-external-helpers"
-      ]
-    }),
   ],
 };
 

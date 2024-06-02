@@ -24,7 +24,7 @@ const EDIT_TOOLS = [
     cmd: '',
   },
   {
-    tag:'undo',
+    tag: 'undo',
     cmd: 'undo',
   },
   {
@@ -47,46 +47,46 @@ const EDIT_TOOLS = [
     tag: 'bold',
     cmd: 'bold',
   },
-  { 
-    tag: 'italic', 
+  {
+    tag: 'italic',
     cmd: 'italic',
   },
-  { 
-    tag:'underline', 
+  {
+    tag: 'underline',
     cmd: 'underline',
   },
   {
     tag: 'align-left',
     cmd: 'justifyLeft',
   },
-  { 
+  {
     tag: 'align-center',
     cmd: 'justifyCenter',
   },
-  { 
+  {
     tag: 'align-right',
     cmd: 'justifyRight',
   },
-  { 
+  {
     tag: 'list-ol',
     cmd: 'insertOrderedList',
   },
-  { 
+  {
     tag: 'list-ul',
     cmd: 'insertUnorderedList',
   },
-  { 
+  {
     tag: 'indent',
     cmd: 'indent',
   },
-  { 
+  {
     tag: 'outdent',
     cmd: 'outdent',
   },
-  { 
+  {
     tag: 'link',
     cmd: '',
-    value: ''
+    value: '',
   },
 ];
 
@@ -96,20 +96,21 @@ export default (() => {
     .setAttribute('contentEditable', 'false')
     .setClass('toolbar');
 
-  EDIT_TOOLS.forEach(ctrl => {
-    toolbar.appendElement(icon(ctrl.tag)
-      .addClass('edit-tool')
-      .addListener('mousedown', e => {
-        e.preventDefault();
-      })
-      .onClick(e => {
-        console.log('clicked');
-        document.execCommand(ctrl.cmd, false, ctrl.value);
-      }),
-      ctrl.tag
+  EDIT_TOOLS.forEach((ctrl) => {
+    toolbar.appendElement(
+      icon(ctrl.tag)
+        .addClass('edit-tool')
+        .addListener('mousedown', (e) => {
+          e.preventDefault();
+        })
+        .onClick((e) => {
+          console.log('clicked');
+          document.execCommand(ctrl.cmd, false, ctrl.value);
+        }),
+      ctrl.tag,
     );
   });
-  
+
   return toolbar;
 })();
 

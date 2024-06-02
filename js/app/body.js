@@ -23,8 +23,8 @@ export default (() => {
     .node(HTML.MAIN)
     .setClass('site-body')
     .setCSSProperty('backgroundColor', '#fffaf0')
-    .appendElement(HTML.element(HTML.DIV)
-      .setClass('site-header-shadow')
+    .appendElement(
+      HTML.element(HTML.DIV).setClass('site-header-shadow'),
     );
 })();
 

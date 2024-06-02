@@ -19,9 +19,10 @@ import HTML from '../dom/html.js';
 export default (() => {
   return Object.create(ELEMENT)
     .node(HTML.HEADER)
-    .appendElement(Object.create(ELEMENT)
-      .node(HTML.H1)
-      .setAttribute('textContent', 'U Log')
+    .appendElement(
+      Object.create(ELEMENT)
+        .node(HTML.H1)
+        .setAttribute('textContent', 'U Log'),
     )
     .setCSSProperty('background', '#47c7f0ff')
     .setCSSProperty('height', '5rem');

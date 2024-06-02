@@ -56,36 +56,31 @@ const HTML = Object.create({
   UL: 'ul',
 });
 
-HTML.element = function (tag) {
-  return Object.create(ELEMENT)
-    .node(tag);
-},
+(HTML.element = function (tag) {
+  return Object.create(ELEMENT).node(tag);
+}),
+  (HTML.i = function (text = '') {
+    return this.element(this.I).setAttribute('textContent', text);
+  });
 
-HTML.i = function (text='') {
-  return this.element(this.I)
-    .setAttribute('textContent', text);
-};
-
-HTML.label = function (text='') {
+HTML.label = function (text = '') {
   return this.element(this.LABEL)
     .setClass('label')
     .setAttribute('textContent', text);
 };
 
-HTML.li = function (text='') {
-  return this.element(this.LI)
-    .setAttribute('textContent', text);
+HTML.li = function (text = '') {
+  return this.element(this.LI).setAttribute('textContent', text);
 };
 
-HTML.option = function (text='') {
+HTML.option = function (text = '') {
   return this.element(this.OPTION)
     .setAttribute('textContent', text)
     .setAttribute('value', text);
 };
 
-HTML.p = function (text='') {
-  return this.element(this.P)
-    .setAttribute('textContent', text);
+HTML.p = function (text = '') {
+  return this.element(this.P).setAttribute('textContent', text);
 };
 
 HTML.query = function (selector) {
@@ -97,9 +92,8 @@ HTML.section = function () {
   return this.element(this.SECTION);
 };
 
-HTML.span = function (text='') {
-  return this.element(this.SPAN)
-    .setAttribute('textContent', text);
+HTML.span = function (text = '') {
+  return this.element(this.SPAN).setAttribute('textContent', text);
 };
 
 export default (() => {

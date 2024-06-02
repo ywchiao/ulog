@@ -42,16 +42,12 @@ export default (tag) => {
   const droplist = Object.create(DROPLIST)
     .node(HTML.LI)
     .appendElement(anchor(tag))
-    .appendElement(
-      HTML.element(HTML.UL).setDisplay('none'),
-      'list'
-    );
+    .appendElement(HTML.element(HTML.UL).setDisplay('none'), 'list');
 
-  droplist.onClick(e => {
+  droplist.onClick((e) => {
     if (droplist.list.isVisible()) {
       droplist.list.setDisplay('none');
-    }
-    else {
+    } else {
       droplist.list.setDisplay('block');
     }
 

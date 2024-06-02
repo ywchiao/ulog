@@ -23,21 +23,20 @@ import post from './post/post.js';
 import card from './ui/card.js';
 
 window.addEventListener('load', () => {
-  APP.setContent(Object.create(ELEMENT)
-    .node(HTML.ARTICLE)
-    .setCSSProperty('display', 'flex')
-    .appendElement(catalog(), 'sidemenu')
-    .appendElement(
-      card('blog')
-        .setCSSProperty('flex', '1 1 auto')
-        .appendElement(post(), 'post'),
-      'blog'
-    )
-  )
-  .setBanner(BANNER);
+  APP.setContent(
+    Object.create(ELEMENT)
+      .node(HTML.ARTICLE)
+      .setCSSProperty('display', 'flex')
+      .appendElement(catalog(), 'sidemenu')
+      .appendElement(
+        card('blog')
+          .setCSSProperty('flex', '1 1 auto')
+          .appendElement(post(), 'post'),
+        'blog',
+      ),
+  ).setBanner(BANNER);
 
   document.body = APP.node;
-
 });
 
 // index.js

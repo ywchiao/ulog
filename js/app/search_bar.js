@@ -25,9 +25,9 @@ export default (() => {
         HTML.element(HTML.INPUT)
           .setClass('input')
           .setAttribute('type', 'text')
-          .setAttribute('placeholder', '查詢')
+          .setAttribute('placeholder', '查詢'),
       )
-      .appendElement(icon('search'))
+      .appendElement(icon('search')),
   );
 })();
 

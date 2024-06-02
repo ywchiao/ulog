@@ -18,10 +18,9 @@ import HTML from '../dom/html.js';
 import ABOUT from './about.js';
 
 export default ((poweredBy, copyright) => {
-  return HTML.element(HTML.ARTICLE)
-    .appendElement(HTML.p(poweredBy));
+  return HTML.element(HTML.ARTICLE).appendElement(HTML.p(poweredBy));
 })(
-  `Powered by ${ABOUT.name} v${ABOUT.version}, ${ABOUT.license} Licensed, © ${ABOUT.copyright}, ${ABOUT.author.name}`
+  `Powered by ${ABOUT.name} v${ABOUT.version}, ${ABOUT.license} Licensed, © ${ABOUT.copyright}, ${ABOUT.author.name}`,
 );
 
 // app/copyright.js

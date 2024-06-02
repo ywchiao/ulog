@@ -71,7 +71,7 @@ ELEMENT.addProperty = function (key, value) {
  * @param tag The tag for the newly added element.
  * @returns {this}
  */
-ELEMENT.appendElement = function (el, tag=null) {
+ELEMENT.appendElement = function (el, tag = null) {
   if (tag) {
     this[tag] = el;
   }
@@ -196,7 +196,8 @@ ELEMENT.removeAttribute = function (attribute) {
  */
 ELEMENT.removeClass = function (cls) {
   this.node.className = this.node.className.replace(
-    RegExp(`[ ]*${cls}`, 'g'), ''
+    RegExp(`[ ]*${cls}`, 'g'),
+    '',
   );
 
   return this;
@@ -232,8 +233,7 @@ ELEMENT.replaceElement = function (el, tag) {
     this.node.replaceChild(el.node, this[tag].node);
 
     this[tag] = el;
-  }
-  else {
+  } else {
     this.appendElement(el, tag);
   }
 
@@ -292,7 +292,7 @@ ELEMENT.setCSSProperty = function (property, value) {
  * @param visible=false
  * @returns {this}
  */
-ELEMENT.setDisplay = function (display='none') {
+ELEMENT.setDisplay = function (display = 'none') {
   this.node.style.display = display;
 
   return this;
@@ -310,8 +310,7 @@ ELEMENT.setDisplay = function (display='none') {
 ELEMENT.swapClass = function (clsIn, clsOut) {
   if (this.node.className.includes(clsIn)) {
     this.node.className = this.node.className.replace(clsIn, clsOut);
-  }
-  else {
+  } else {
     this.node.className = this.node.className.replace(clsOut, clsIn);
   } // fi
 

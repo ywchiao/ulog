@@ -19,18 +19,17 @@ import HTML from '../dom/html.js';
 const ANCHOR = Object.create(ELEMENT);
 
 /**
-* Set/Remove the Component's 'disabled' attribute.
-*
-* @name setEnabled
-* @function
-* @param enabled Boolean to indicate the enable/disable intension.
-* @returns {this}
-*/
+ * Set/Remove the Component's 'disabled' attribute.
+ *
+ * @name setEnabled
+ * @function
+ * @param enabled Boolean to indicate the enable/disable intension.
+ * @returns {this}
+ */
 ANCHOR.setEnabled = function (enabled) {
   if (enabled) {
     this.removeAttribute('disabled');
-  }
-  else {
+  } else {
     this.setAttribute('disabled', 'true');
   }
 

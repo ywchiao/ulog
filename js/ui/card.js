@@ -33,9 +33,7 @@ CARD.setFooter = function (footer) {
 };
 
 export default (tag) => {
-  return Object.create(CARD)
-    .node(HTML.SECTION)
-    .setClass('card');
+  return Object.create(CARD).node(HTML.SECTION).setClass('card');
 };
 
 // widget/card.js

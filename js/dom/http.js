@@ -16,7 +16,7 @@
 const get_headers = (token) => {
   const headers = new Headers({
     Accept: 'application/json',
-    'Content-Type': 'application/json; charset=UTF-8'
+    'Content-Type': 'application/json; charset=UTF-8',
   });
 
   if (token.hasOwnProperty('auth')) {
@@ -30,7 +30,7 @@ const get_headers = (token) => {
   return headers;
 }; // get_headers()
 
-const get_url = (url, args={}) => {
+const get_url = (url, args = {}) => {
   const query = [];
 
   for (const key in args) {
@@ -42,7 +42,7 @@ const get_url = (url, args={}) => {
     } // fi
   } // od
 
-  url += (query.length) ? `?${  query.join('&')}` : '';
+  url += query.length ? `?${query.join('&')}` : '';
 
   return url;
 }; // get_url()
@@ -62,73 +62,54 @@ HTTP.seal = function (token, auth, account) {
   token.account = account;
 };
 
-HTTP.get = function (url, args={}, token={}) {
-  return fetch(
-    get_url(url, args),
-    {
-      method: 'GET',
-      headers: get_headers(token),
-    }
-  );
+HTTP.get = function (url, args = {}, token = {}) {
+  return fetch(get_url(url, args), {
+    method: 'GET',
+    headers: get_headers(token),
+  });
 };
 
-HTTP.head = function (url, token={}) {
-  return fetch(
-    url,
-    {
-      method: 'HEAD',
-      headers: get_headers(token),
-    }
-  );
+HTTP.head = function (url, token = {}) {
+  return fetch(url, {
+    method: 'HEAD',
+    headers: get_headers(token),
+  });
 };
 
-HTTP.patch = function (url, data={}, token={}) {
-  return fetch(
-    url,
-    {
-      method: 'PATCH',
-      headers: get_headers(token),
-      body: JSON.stringify(data)
-    }
-  );
+HTTP.patch = function (url, data = {}, token = {}) {
+  return fetch(url, {
+    method: 'PATCH',
+    headers: get_headers(token),
+    body: JSON.stringify(data),
+  });
 };
 
-HTTP.post = function (url, dat={}, token={}) {
-  console.log(`token: ${  token.auth}`);
+HTTP.post = function (url, dat = {}, token = {}) {
+  console.log(`token: ${token.auth}`);
 
-  return fetch(
-    url,
-    {
-      method: 'POST',
-      headers: get_headers(token),
-      body: JSON.stringify(data)
-    }
-  );
+  return fetch(url, {
+    method: 'POST',
+    headers: get_headers(token),
+    body: JSON.stringify(data),
+  });
 };
 
-HTTP.put = function (url, data={}, token={}) {
-  return fetch(
-    url,
-    {
-      method: 'PUT',
-      headers: get_headers(token),
-      body: JSON.stringify(data)
-    }
-  );
+HTTP.put = function (url, data = {}, token = {}) {
+  return fetch(url, {
+    method: 'PUT',
+    headers: get_headers(token),
+    body: JSON.stringify(data),
+  });
 };
 
-HTTP.query = function (url, data={}, token={}) {
-  console.log(`query => token: ${  token.auth}`);
+HTTP.query = function (url, data = {}, token = {}) {
+  console.log(`query => token: ${token.auth}`);
 
-  return fetch(
-    url,
-    {
-      method: 'POST',
-      headers: get_headers(token),
-      body: JSON.stringify(data)
-    }
-  )
-  .then(response => {
+  return fetch(url, {
+    method: 'POST',
+    headers: get_headers(token),
+    body: JSON.stringify(data),
+  }).then((response) => {
     let json = {};
 
     if (response.status === 200) {
@@ -136,7 +117,7 @@ HTTP.query = function (url, data={}, token={}) {
     }
 
     return json;
-  })
+  });
 };
 
 export default (() => {

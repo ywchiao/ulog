@@ -24,13 +24,13 @@ export default function () {
   let editArea = Object.create(ELEMENT)
     .node(HTML.ARTICLE)
     .setClass('edit-area');
-//    .setCSSProperty('writing-mode', 'vertical-rl');
- 
+  //    .setCSSProperty('writing-mode', 'vertical-rl');
+
   return Object.create(ELEMENT)
     .node(HTML.FORM)
     .setAttribute('id', 'new-post')
     .setAttribute('contentEditable', 'false')
-    .addListener('submit', e => {
+    .addListener('submit', (e) => {
       e.preventDefault();
 
       let formData = new FormData();
@@ -39,22 +39,24 @@ export default function () {
 
       fetch('post', {
         method: 'POST',
-        body: formData
-      }).then(response => {
-        return response.json();
-      }).then(json => {
-        console.log(JSON.stringify(json, null, 2));
+        body: formData,
       })
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          console.log(JSON.stringify(json, null, 2));
+        });
     })
     .appendElement(TITLEBAR, 'titlebar')
     .appendElement(TOOLBAR, 'toolbar')
     .appendElement(editArea, 'edit-area')
-    .appendNode(Object.create(ELEMENT)
-      .node(HTML.INPUT)
-      .setAttribute('type', 'submit')
-      .setAttribute('value', '貼  文')
-      .node
+    .appendNode(
+      Object.create(ELEMENT)
+        .node(HTML.INPUT)
+        .setAttribute('type', 'submit')
+        .setAttribute('value', '貼  文').node,
     );
-};
+}
 
 // post/post.js
